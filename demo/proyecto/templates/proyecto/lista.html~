@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block titulo %}Lista de archivos{% endblock %}
+
+
+{% block contenido %}
+
+{% include "proyecto/modal/create.html" %}
+{% include "proyecto/modal/delete.html" %}
+
+ <div class="container">
+		 <div class="jumbotron">
+				 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalCreate">Nuevo proyecto</button>
+	
+
+    <br>
+	<br>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+    		<h3 class="panel-title">Lista de proyectos</h3>
+  		</div>
+  		<div class="panel-body">
+    <table class="table table-striped" id="tabla_proyectos">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre Proyecto</th>
+          <th>Fecha de creacion</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="lista_proyectos">
+       	{% if lista_proyectos %}
+			{% for proyecto in lista_proyectos %}
+				
+		 <tr id="tr{{proyecto.id}}">
+				 <td scope="row">{{proyecto.id}}</td>
+          	<td>{{proyecto.nombre}}</td>
+         	 <td>{{proyecto.fecha_creacion}}</td>
+			 <td>
+			 	<button type="button" class="btn btn-info">Configurar</button>
+			 	<button id="{{producto.id}}" data-name="{{proyecto.nombre}}" type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#ModalDelete">Eliminar</button>
+			 </td>
+  		</tr>
+
+			{% endfor %}
+		{% else %}
+			<h4>Aun no has creado ningun proyecto</h4>
+		{% endif %}
+		
+	      </tbody>
+    </table>
+  
+  			</div>
+		</div>
+	</div> <!-- /jumbotron -->
+</div> <!-- /container -->
+
+{% endblock %}
+
+
+{% block js %}
+	<script src="{{STATIC_URL}}js/proyectos.js"></script>
+{% endblock %}
+

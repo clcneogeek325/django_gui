@@ -1,0 +1,22 @@
+<div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="ModaldeleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="ModalDeleteLabel">Eliminar Proyecto</h4>
+      </div>
+      <div class="modal-body">
+        <p>¿Realmente desea eliminar el proyecto <span id="modal_name"></span>?</p>
+      </div>
+      <div class="modal-footer">
+	<form method="post" id="frmEliminar">
+			{%csrf_token%}
+	    <input type="hidden" id="modal_idProducto" name="product_id">
+        <button id="nueva_carpeta" type="submit" class="btn btn-danger">Eliminar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+

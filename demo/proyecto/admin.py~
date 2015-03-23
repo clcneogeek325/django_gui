@@ -1,0 +1,6 @@
+from django.contrib import admin
+from .models import tabla,campo
+
+#admin.site.register(proyecto)
+admin.site.register(tabla)
+admin.site.register(campo)
